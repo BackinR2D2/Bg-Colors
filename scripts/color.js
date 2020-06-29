@@ -9,14 +9,15 @@ function componentToHex(c) {
 }
 
 buttons[0].addEventListener('click', () => {
-    let r = Math.floor(Math.random() * 255);
-    let g = Math.floor(Math.random() * 255);
-    let b = Math.floor(Math.random() * 255);
+    let r = Math.floor(Math.random() * 256);
+    let g = Math.floor(Math.random() * 256);
+    let b = Math.floor(Math.random() * 256);
 
     let rgb = `rgb(${r}, ${g}, ${b})`;
     document.querySelector('body').style.backgroundColor = rgb;
     hex.textContent = ("#" + componentToHex(r) + componentToHex(g) + componentToHex(b)).toUpperCase();
     span.textContent = rgb;
+    displayStatus.style.display = 'none';
 
 })
 
@@ -25,6 +26,7 @@ buttons[1].addEventListener('click', () => {
     document.querySelector('body').style.backgroundColor = white;
     span.textContent = white;
     hex.textContent = '#FFFFFF';
+    displayStatus.style.display = 'none';
 })
 
 span.addEventListener('click', () => {
