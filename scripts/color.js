@@ -1,6 +1,7 @@
 const buttons = document.querySelectorAll('button');
 const span = document.querySelector('span');
 const hex = document.getElementById('hex');
+const displayStatus = document.getElementById('displayMessage');
 
 function componentToHex(c) {
     let hex = c.toString(16);
@@ -24,4 +25,24 @@ buttons[1].addEventListener('click', () => {
     document.querySelector('body').style.backgroundColor = white;
     span.textContent = white;
     hex.textContent = '#FFFFFF';
+})
+
+span.addEventListener('click', () => {
+    navigator.clipboard.writeText(span.textContent).then(() => {
+        displayStatus.style.display = 'block';
+        displayStatus.textContent = 'Copying rgb color to clipboard was successful!';
+    }, (err) => {
+        displayStatus.style.display = 'block';
+        displayStatus.textContent = 'Could not copy text: ', err;
+    });
+})
+
+hex.addEventListener('click', () => {
+    navigator.clipboard.writeText(hex.textContent).then(() => {
+        displayStatus.style.display = 'block';
+        displayStatus.textContent = 'Copying hex color to clipboard was successful!';
+    }, (err) => {
+        displayStatus.style.display = 'block';
+        displayStatus.textContent = 'Could not copy text: ', err;
+    });
 })
