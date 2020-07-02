@@ -30,21 +30,17 @@ buttons[1].addEventListener('click', () => {
 })
 
 span.addEventListener('click', () => {
-    navigator.clipboard.writeText(span.textContent).then(() => {
+    let clipboard = new ClipboardJS('span');
+    clipboard.on('success', () => {
         displayStatus.style.display = 'block';
         displayStatus.textContent = 'Copying rgb color to clipboard was successful!';
-    }, (err) => {
-        displayStatus.style.display = 'block';
-        displayStatus.textContent = 'Could not copy text: ', err;
-    });
+    })
 })
 
 hex.addEventListener('click', () => {
-    navigator.clipboard.writeText(hex.textContent).then(() => {
+    let clipboardHex = new ClipboardJS('#hex');
+    clipboardHex.on('success', () => {
         displayStatus.style.display = 'block';
         displayStatus.textContent = 'Copying hex color to clipboard was successful!';
-    }, (err) => {
-        displayStatus.style.display = 'block';
-        displayStatus.textContent = 'Could not copy text: ', err;
-    });
+    })
 })

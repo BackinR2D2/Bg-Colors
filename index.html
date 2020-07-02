@@ -5,27 +5,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./public/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <title>Random color generator</title>
 </head>
 
 <body>
-    <div class="header">
-        <h1>Random color generator</h1>
-    </div>
-    <p id="rgb">Rgb color: <span title="Copy the rgb color">rgb(255, 255, 255)</span></p>
-    <p id="rgb">Hex color: <span title="Copy the hex color" id="hex">#FFFFFF</span></p>
     <div>
-        <p id="displayMessage"></p>
-    </div>
-    <div class="button-wrapper">
-        <div class="fiftyLEFT">
-            <button type="submit" class="submit" value="submit" name="submit_button">Set random color!</button>
+        <div class="header">
+            <h1>Random color generator</h1>
         </div>
-        <div class="fiftyRIGHT">
-            <button class="submit" value="show" name="show_button">Back to normal!</button>
+        <p id="rgb">Rgb color: <span id="rgbColor" data-clipboard-target="#rgbColor" title="Copy the rgb color">rgb(255,
+                255, 255)</span></p>
+        <p id="rgb">Hex color: <span data-clipboard-target="#hex" title="Copy the hex color" id="hex">#FFFFFF</span></p>
+        <div>
+            <p id="displayMessage"></p>
+        </div>
+        <div class="button-wrapper">
+            <div class="fiftyLEFT">
+                <button type="submit" class="submit" value="submit" name="submit_button">Set random color!</button>
+            </div>
+            <div class="fiftyRIGHT">
+                <button class="submit" value="show" name="show_button">Back to normal!</button>
+            </div>
         </div>
     </div>
     <script src="./scripts/color.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
 </body>
 
 </html>

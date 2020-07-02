@@ -19,7 +19,7 @@ button.submit {
     
   button.submit:hover {
     color: #fff; 
-    background: gray;
+    background: black;
     }
     
   button.submit {
@@ -83,6 +83,7 @@ button.submit {
 
   span{
     cursor: pointer;
+    
   }
 
   span:hover{
