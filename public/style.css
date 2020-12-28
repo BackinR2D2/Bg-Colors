@@ -51,9 +51,9 @@ button.submit {
 
   .header{
     text-align: center;
-    text-decoration: underline;
+    /* text-decoration: underline; */
     font-size: 2em;
-    font-weight: 600;
+    font-weight: 100;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   }
 

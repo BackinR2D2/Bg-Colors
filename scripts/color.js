@@ -39,19 +39,35 @@ buttons[1].addEventListener('click', () => {
 
 const clipboardRgb = new ClipboardJS(span);
 clipboardRgb.on('success', function (e) {
-    console.log(e);
+    M.toast({
+        html: 'Rgb color has been copied to the clipboard.',
+        displayLength: 1500,
+        outDuration: 300,
+    })
 });
 
 clipboardRgb.on('error', function (e) {
-    console.log(e);
+    M.toast({
+        html: 'Some error occured... Try again',
+        displayLength: 1500,
+        outDuration: 300,
+    })
 });
 
 const clipboardHex = new ClipboardJS(hex);
 clipboardHex.on('success', function (e) {
-    console.log(e);
+    M.toast({
+        html: 'Hex color has been copied to the clipboard.',
+        displayLength: 1500,
+        outDuration: 300,
+    })
 });
 
 clipboardHex.on('error', function (e) {
-    console.log(e);
+    M.toast({
+        html: 'Some error occured... Try again',
+        displayLength: 1500,
+        outDuration: 300,
+    })
 });
 
