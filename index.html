@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./public/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Random color generator</title>
 </head>
 
@@ -14,9 +15,22 @@
         <div class="header">
             <h1>Random color generator</h1>
         </div>
-        <p id="rgb">Rgb color: <span id="rgbColor" data-clipboard-target="#rgbColor" title="Copy the rgb color">rgb(255,
-                255, 255)</span></p>
-        <p id="rgb">Hex color: <span data-clipboard-target="#hex" title="Copy the hex color" id="hex">#FFFFFF</span></p>
+        <p id="rgb">Rgb color:
+            <span id="rgbColor" data-clipboard-target="#rgbColor" title="Copy the rgb color">
+                rgb(255, 255, 255)
+            </span>
+            <button class="btn-floating">
+                <i class="material-icons">add</i>
+            </button>
+        </p>
+        <p id="rgb">Hex color:
+            <span data-clipboard-target="#hex" title="Copy the hex color" id="hex">
+                #FFFFFF
+            </span>
+            <button class="btn-floating">
+                <i class="material-icons">add</i>
+            </button>
+        </p>
         <div>
             <p id="displayMessage"></p>
         </div>

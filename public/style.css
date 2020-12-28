@@ -96,3 +96,11 @@ button.submit {
       font-size: 1.8em;
     }
   }
+
+  .btn-floating i {
+    background: teal;
+  }
+
+  body {
+    color: rgb(61, 46, 46);
+  }

@@ -1,4 +1,4 @@
-const buttons = document.querySelectorAll('button');
+const buttons = document.querySelectorAll('.submit');
 const span = document.querySelector('span');
 const hex = document.getElementById('hex');
 const displayStatus = document.getElementById('displayMessage');
@@ -14,7 +14,10 @@ buttons[0].addEventListener('click', () => {
     let b = Math.floor(Math.random() * 256);
 
     let rgb = `rgb(${r}, ${g}, ${b})`;
+    const brightness = Math.round(((parseInt(r) * 299) + (parseInt(g) * 587) + (parseInt(b) * 114)) / 1000);
+    const textColour = (brightness > 125) ? 'rgb(61, 46, 46)' : 'rgb(209, 203, 203)';
     document.querySelector('body').style.backgroundColor = rgb;
+    document.querySelector('body').style.color = textColour;
     hex.textContent = ("#" + componentToHex(r) + componentToHex(g) + componentToHex(b)).toUpperCase();
     span.textContent = rgb;
     displayStatus.style.display = 'none';
@@ -22,15 +25,16 @@ buttons[0].addEventListener('click', () => {
 })
 
 buttons[1].addEventListener('click', () => {
-    const white = `rgb(255, 255, 255)`
-    document.querySelector('body').style.backgroundColor = white;
-    span.textContent = white;
+    const bgcolor = `rgb(255, 255, 255)`
+    document.querySelector('body').style.backgroundColor = bgcolor;
+    document.querySelector('body').style.color = 'rgb(61, 46, 46)';
+    span.textContent = bgcolor;
     hex.textContent = '#FFFFFF';
     displayStatus.style.display = 'none';
 })
 
 span.addEventListener('click', () => {
-    let clipboard = new ClipboardJS('span');
+    const clipboard = new ClipboardJS('span');
     clipboard.on('success', () => {
         displayStatus.style.display = 'block';
         displayStatus.textContent = 'Copying rgb color to clipboard was successful!';
@@ -38,7 +42,7 @@ span.addEventListener('click', () => {
 })
 
 hex.addEventListener('click', () => {
-    let clipboardHex = new ClipboardJS('#hex');
+    const clipboardHex = new ClipboardJS('#hex');
     clipboardHex.on('success', () => {
         displayStatus.style.display = 'block';
         displayStatus.textContent = 'Copying hex color to clipboard was successful!';
