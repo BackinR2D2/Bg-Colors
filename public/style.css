@@ -17,11 +17,6 @@ button.submit {
     outline: none;
     }
     
-  button.submit:hover {
-    color: #fff; 
-    background: black;
-    }
-    
   button.submit {
     flex: 1;
     display:block;
