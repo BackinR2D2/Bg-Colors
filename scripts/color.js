@@ -19,8 +19,9 @@ buttons[0].addEventListener('click', () => {
     const textColour = (brightness > 125) ? 'rgb(61, 46, 46)' : 'rgb(209, 203, 203)';
     document.querySelector('body').style.backgroundColor = rgb;
     document.querySelector('body').style.color = textColour;
-    hex.textContent = ("#" + componentToHex(r) + componentToHex(g) + componentToHex(b)).toUpperCase();
-    hex.setAttribute("data-clipboard-text", ("#" + componentToHex(r) + componentToHex(g) + componentToHex(b)).toUpperCase());
+    const hexColor = ("#" + componentToHex(r) + componentToHex(g) + componentToHex(b)).toUpperCase();
+    hex.textContent = hexColor
+    hex.setAttribute("data-clipboard-text", hexColor);
     span.textContent = rgb;
     displayStatus.style.display = 'none';
 
