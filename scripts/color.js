@@ -1,6 +1,6 @@
 const buttons = document.querySelectorAll('.submit');
-const span = document.querySelector('span');
 const hex = document.getElementById('hex');
+const span = document.querySelector('span');
 const displayStatus = document.getElementById('displayMessage');
 
 function componentToHex(c) {
@@ -14,11 +14,13 @@ buttons[0].addEventListener('click', () => {
     let b = Math.floor(Math.random() * 256);
 
     let rgb = `rgb(${r}, ${g}, ${b})`;
+    span.setAttribute("data-clipboard-text", rgb);
     const brightness = Math.round(((parseInt(r) * 299) + (parseInt(g) * 587) + (parseInt(b) * 114)) / 1000);
     const textColour = (brightness > 125) ? 'rgb(61, 46, 46)' : 'rgb(209, 203, 203)';
     document.querySelector('body').style.backgroundColor = rgb;
     document.querySelector('body').style.color = textColour;
     hex.textContent = ("#" + componentToHex(r) + componentToHex(g) + componentToHex(b)).toUpperCase();
+    hex.setAttribute("data-clipboard-text", ("#" + componentToHex(r) + componentToHex(g) + componentToHex(b)).toUpperCase());
     span.textContent = rgb;
     displayStatus.style.display = 'none';
 
@@ -30,21 +32,26 @@ buttons[1].addEventListener('click', () => {
     document.querySelector('body').style.color = 'rgb(61, 46, 46)';
     span.textContent = bgcolor;
     hex.textContent = '#FFFFFF';
+    span.setAttribute("data-clipboard-text", bgcolor);
+    hex.setAttribute("data-clipboard-text", "#FFFFFF");
     displayStatus.style.display = 'none';
 })
 
-span.addEventListener('click', () => {
-    const clipboard = new ClipboardJS('span');
-    clipboard.on('success', () => {
-        displayStatus.style.display = 'block';
-        displayStatus.textContent = 'Copying rgb color to clipboard was successful!';
-    })
-})
+const clipboardRgb = new ClipboardJS(span);
+clipboardRgb.on('success', function (e) {
+    console.log(e);
+});
 
-hex.addEventListener('click', () => {
-    const clipboardHex = new ClipboardJS('#hex');
-    clipboardHex.on('success', () => {
-        displayStatus.style.display = 'block';
-        displayStatus.textContent = 'Copying hex color to clipboard was successful!';
-    })
-})
+clipboardRgb.on('error', function (e) {
+    console.log(e);
+});
+
+const clipboardHex = new ClipboardJS(hex);
+clipboardHex.on('success', function (e) {
+    console.log(e);
+});
+
+clipboardHex.on('error', function (e) {
+    console.log(e);
+});
+
