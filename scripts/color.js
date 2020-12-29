@@ -17,9 +17,13 @@ buttons[0].addEventListener('click', () => {
     span.setAttribute("data-clipboard-text", rgb);
     const brightness = Math.round(((parseInt(r) * 299) + (parseInt(g) * 587) + (parseInt(b) * 114)) / 1000);
     const textColour = (brightness > 125) ? 'rgb(61, 46, 46)' : 'rgb(209, 203, 203)';
+    const hexColor = ("#" + componentToHex(r) + componentToHex(g) + componentToHex(b)).toUpperCase();
+
+    const n_match = ntc.name(hexColor);
+    n_name = n_match[1];
+    document.title = n_name;
     document.querySelector('body').style.backgroundColor = rgb;
     document.querySelector('body').style.color = textColour;
-    const hexColor = ("#" + componentToHex(r) + componentToHex(g) + componentToHex(b)).toUpperCase();
     hex.textContent = hexColor
     hex.setAttribute("data-clipboard-text", hexColor);
     span.textContent = rgb;
@@ -29,6 +33,7 @@ buttons[0].addEventListener('click', () => {
 
 buttons[1].addEventListener('click', () => {
     const bgcolor = `rgb(255, 255, 255)`
+    document.title = "Random color generator";
     document.querySelector('body').style.backgroundColor = bgcolor;
     document.querySelector('body').style.color = 'rgb(61, 46, 46)';
     span.textContent = bgcolor;
@@ -71,4 +76,3 @@ clipboardHex.on('error', function (e) {
         outDuration: 300,
     })
 });
-
