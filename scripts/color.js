@@ -3,6 +3,11 @@ const hex = document.getElementById('hex');
 const span = document.querySelector('span');
 const displayStatus = document.getElementById('displayMessage');
 
+document.addEventListener('DOMContentLoaded', function () {
+    const elems = document.querySelectorAll('.color');
+    const instances = M.Tooltip.init(elems);
+});
+
 function componentToHex(c) {
     let hex = c.toString(16);
     return hex.length == 1 ? "0" + hex : hex;
